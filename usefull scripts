@@ -1,1 +1,3 @@
-$Control/NewRecord/text_best_time.text = String(stepify(time_best, 0.01)) + " sec"
+$Control/NewRecord/text_best_time.text = String(stepify(time_best, 0.01)) + " sec" - вывод числа с троку с точностью 0.01
+Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) - делать курсор мыши видимым
+
