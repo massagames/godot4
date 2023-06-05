@@ -1,0 +1,1 @@
+$Control/NewRecord/text_best_time.text = String(stepify(time_best, 0.01)) + " sec"
