@@ -6,6 +6,6 @@ Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) - делать курсор мы�
 
 var starSrc = preload("res://sfxs/sfx_plane_crash.tscn") - прелоад необходим для всех партикл эффектов
 var star = starSrc.instance()
-		add_child(star)
-		star.position = Vector2 (rand_range(200, 1050), rand_range(300, 2350))
+	add_child(star)
+	star.position = Vector2 (rand_range(200, 1050), rand_range(300, 2350))
     
