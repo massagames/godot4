@@ -1,6 +1,10 @@
 $Control/NewRecord/text_best_time.text = String(stepify(time_best, 0.01)) + " sec" - вывод числа с троку с точностью 0.01
 
-onready var text_total_stars = $Control/stars_total - 
+onready var text_total_stars = $Control/stars_total - присваивание при загрузке скрипта
+
+enum State {IDLE, RUN, AWAY} - перечисление
+var state = State.IDLE - задаем значение переменной
+change_state(State.RUN) - можно подавать в функцию
 
 Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) - делать курсор мыши видимым
 
