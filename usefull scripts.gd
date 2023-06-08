@@ -13,3 +13,20 @@ var star = starSrc.instance()
 	add_child(star)
 	star.position = Vector2 (rand_range(200, 1050), rand_range(300, 2350))
     
+# пример использования await для запуска анимаций и функций по порядку, 3 анимации, затем таймер 0.5 сек и по завершению самоуничтожение
+@onready var ap = $AnimationPlayer
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	run_animations()
+	pass # Replace with function body.
+
+func run_animations():
+	ap.play("Move_X")
+	await ap.animation_finished
+	ap.play("Move_Y")
+	await ap.animation_finished
+	ap.play("Move_Z")
+	await ap.animation_finished
+	await get_tree().create_timer(0.5).timeout
+	queue_free()
+	print("finish")
