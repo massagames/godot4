@@ -33,3 +33,6 @@ func run_animations():
 	queue_free()
 	print("finish")
 
+# позволяет вызвать функцию с именем указанныем 2 аргументом в виде строки и передать ей параметры
+funcref(self,str(formation)+"Formation").call_func(unit_movable, get_global_mouse_position())
+
