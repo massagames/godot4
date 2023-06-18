@@ -2,6 +2,7 @@ $Control/NewRecord/text_best_time.text = String(stepify(time_best, 0.01)) + " se
 
 onready var text_total_stars = $Control/stars_total # присваивание при загрузке скрипта
 export (NodePath) onready var gbox = get_node(gbox) as CSGBox # ссылка на внешний объект определенного типа
+export(int,1,1000) var numunits # переменная доступна из вне значения инт 1-1000
 
 enum State {IDLE, RUN, AWAY} # перечисление
 var state = State.IDLE # задаем значение переменной
