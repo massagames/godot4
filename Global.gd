@@ -14,5 +14,6 @@ func _physics_process(delta):
 	
 	
 func _ready():
-	OS.center_window()
+	OS.center_window() #godot 3.5
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) #godot 4.0
 	#goToScene("")
