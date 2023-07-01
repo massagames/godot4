@@ -1,6 +1,13 @@
 $Control/NewRecord/text_best_time.text = String(stepify(time_best, 0.01)) + " sec" # вывод числа с троку с точностью 0.01
 
-onready var text_total_stars = $Control/stars_total # присваивание при загрузке скрипта
+@onready var tank = $t72 // godot 4
+@onready var tankshadow = $t72_shadow
+@onready var path:Path2D = $Path2D
+@onready var dd:Node2D = $Node2D
+@onready var text = $Control/RichTextLabel
+@onready var Map001 = $Map001
+
+onready var text_total_stars = $Control/stars_total # присваивание при загрузке скрипта godot 3.5
 export (NodePath) onready var gbox = get_node(gbox) as CSGBox # ссылка на внешний объект определенного типа
 export(int,1,1000) var numunits # переменная доступна из вне значения инт 1-1000
 
@@ -36,3 +43,22 @@ func run_animations():
 # позволяет вызвать функцию с именем указанныем 2 аргументом в виде строки и передать ей параметры
 funcref(self,str(formation)+"Formation").call_func(unit_movable, get_global_mouse_position())
 
+# получение угла 0-360 в зависисмости от направления вектора
+func _input(event):
+#	if event is InputEventMouseMotion:
+#		pos = event.position #позиция курсора мыши
+#		pos = pos - tank.position #из конца вычитаем начало получаем направление
+#		var ang:float = pos.angle() #угол в радианах -3.14 до +3.14
+#		ang = roundi((rad_to_deg(ang) + 180) / 5.625) #конвертируем в градусы, получаем -180..180 и прибавляем 180 чтобы получить 0..360
+#		tank.frame = ang #поделив угол на  5.625 (360/64 кадра) находим текущий кадр анимации
+	pass
+
+# определяем попадает ли курсор мыши в баундбокс спрайта baseWhiteRing
+func _input(event):
+	if event is InputEventMouseMotion:
+		onOver = baseWhiteRing.get_rect().has_point(baseWhiteRing.to_local(event.position))
+		if onOver:
+			baseSelect.visible = true
+		else:
+			baseSelect.visible = false
+		#pos = event.position
