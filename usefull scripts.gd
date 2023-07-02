@@ -62,3 +62,8 @@ func _input(event):
 		else:
 			baseSelect.visible = false
 		#pos = event.position
+
+# создание узла
+func _ready():
+    var sprite2d = Sprite2D.new() # Create a new Sprite2D.
+    add_child(sprite2d) # Add it as a child of this node.
