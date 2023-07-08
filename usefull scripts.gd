@@ -51,7 +51,7 @@ func _input(event):
 #		var ang:float = pos.angle() #угол в радианах -3.14 до +3.14
 #		ang = roundi((rad_to_deg(ang) + 180) / 5.625) #конвертируем в градусы, получаем -180..180 и прибавляем 180 чтобы получить 0..360
 #		tank.frame = ang #поделив угол на  5.625 (360/64 кадра) находим текущий кадр анимации
-	pass
+	
 
 # определяем попадает ли курсор мыши в баундбокс спрайта baseWhiteRing
 func _input(event):
@@ -67,3 +67,5 @@ func _input(event):
 func _ready():
     var sprite2d = Sprite2D.new() # Create a new Sprite2D.
     add_child(sprite2d) # Add it as a child of this node.
+
+get_global_mouse_position() #
