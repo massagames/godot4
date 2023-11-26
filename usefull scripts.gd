@@ -69,3 +69,24 @@ func _ready():
     add_child(sprite2d) # Add it as a child of this node.
 
 get_global_mouse_position() #
+
+@export var items:Array[PackedScene] = [] #создаем массив в который модно помещать классы сцен в виде прелоад
+
+func _physics_process(delta): #пример проверки на столкновения и реакции на них
+	velocity = Vector2(-speed, 0)
+	move_and_slide()
+	var collisions:int = get_slide_collision_count()
+	for i in collisions:
+		var collide_info = get_slide_collision(i)
+		var collider = collide_info.get_collider()
+		if collider.has_method("take_damage"):
+			collider.take_damage()
+			queue_free()
+			return
+
+func _on_area_2d_body_entered(body): #пример реакции на вхождение тела в зону и проверки его группы и наличия метода
+	if body.is_in_group("enemy"):
+		if body.has_method("take_damage"):
+			body.take_damage(35)
+			print("collide")
+			queue_free()
