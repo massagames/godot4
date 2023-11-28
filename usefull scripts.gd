@@ -84,9 +84,15 @@ func _physics_process(delta): #пример проверки на столкно
 			queue_free()
 			return
 
-func _on_area_2d_body_entered(body): #пример реакции на вхождение тела в зону и проверки его группы и наличия метода
+ #пример реакции на вхождение тела в зону и проверки его группы и наличия метода
+func _on_area_2d_body_entered(body):
 	if body.is_in_group("enemy"):
 		if body.has_method("take_damage"):
 			body.take_damage(35)
 			print("collide")
 			queue_free()
+
+# выбрать все ноды группы enemy
+var enemys = get_tree().get_nodes_in_group("enemy") 
+	for i in enemys:
+		i.queue_free()
